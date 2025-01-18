@@ -104,7 +104,7 @@ const SignIn = () => {
             <div className="flex justify-center pt-[16px] tablet:pt-[24px]">
               <span className="text-[14px] font-thin">
                 {t("dont_have_account")}{" "}
-                <a href="register" className="text-green">
+                <a href="/register" className="text-green">
                   {t("register")}{" "}
                 </a>
               </span>
