@@ -6,6 +6,7 @@ import { SignInFormValues, signInSchema } from "../../schemas/authSchema";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useHandleLogIn } from "../../react-query/mutation/auth";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -104,9 +105,9 @@ const SignIn = () => {
             <div className="flex justify-center pt-[16px] tablet:pt-[24px]">
               <span className="text-[14px] font-thin">
                 {t("dont_have_account")}{" "}
-                <a href="/register" className="text-green">
+                <Link to="/register" className="text-green">
                   {t("register")}{" "}
-                </a>
+                </Link>
               </span>
             </div>
           </div>
