@@ -3,8 +3,25 @@ import Logo from "../Logo";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../LanguageSwitcher";
 import ThemeSwitcher from "../ThemeSwitcher";
+import { useAtomValue } from "jotai";
+import { userAtom } from "../../store/auth";
+import { useEffect, useState } from "react";
+import { getProfileInfo } from "../../supabase/account";
 
 const Navbar = () => {
+  const user = useAtomValue(userAtom);
+
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (user) {
+      getProfileInfo(user.user.id).then((res) => {
+        if (res.data) {
+          setAvatarUrl(res.data[0].avatar_url);
+        }
+      });
+    }
+  }, [user]);
   const navigate = useNavigate();
   const { t } = useTranslation();
   return (
@@ -25,14 +42,20 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="cursor-pointer">
-            <Link
-              to="explore"
+            <span
+              onClick={() => {
+                if (user) {
+                  navigate("/explore");
+                } else {
+                  navigate("/sign-in");
+                }
+              }}
               className={`hover:text-[#5BBA66] dark:text-black ${
-                location.pathname === "explore" ? "text-[#5BBA66]" : ""
+                location.pathname === "/explore" ? "text-[#5BBA66]" : ""
               }`}
             >
               {t("explore_pets")}
-            </Link>
+            </span>
           </li>
         </ul>
       </div>
@@ -49,7 +72,21 @@ const Navbar = () => {
         >
           {t("contact_us")}
         </button>
+      {user? (
+        <button
+        onClick={() => {
+          navigate("/profile");
+        }}
+      >
+        <img
+          className="w-[40px]"
+          src={avatarUrl ?? "https://via.placeholder.com/150"}
+          alt=""
+        />
+      </button>     ):
+            null
 
+        }
         <LanguageSwitcher />
         <ThemeSwitcher />
       </div>

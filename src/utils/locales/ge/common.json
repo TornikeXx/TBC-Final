@@ -87,5 +87,12 @@
   "register": "რეგისტრაცია",
   "dont_have_account": "არ გაქვს პროფილი?",
   "confirm_password": "გაიმეორე პაროლი",
-  "already_have_account": "გააქვს უკვე ანგარიში?"
+  "already_have_account": "გააქვს უკვე ანგარიში?",
+  "edit_profile":"შეცვალე პროფილი",
+  "change_avatar":"შეცვალე ავატარი",
+  "submit":"თანხმობა",
+  "profile":"პროფილი",
+  "username":"მომხმარებლების სახელი",
+  "phone":"ტელ.ნომერი",
+  "log_out":"გამოსვლა"
 }

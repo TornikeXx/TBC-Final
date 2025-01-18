@@ -27,6 +27,6 @@ export const useHandleLogOut = () => {
   return useMutation({
     mutationKey: ["logout"],
     mutationFn: logout,
-    onSuccess: () => navigate("/login"),
+    onSuccess: () => navigate("/sign-in"),
   });
 };

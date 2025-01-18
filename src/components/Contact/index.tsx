@@ -5,6 +5,7 @@ import Input from "../Input";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactFormFields, contactSchema } from "../../schemas/contactSchema";
+import { EMAILJS_CONFIG } from "../../config/emailjsConfig";
 
 const Contact = () => {
   const { t, i18n } = useTranslation();
@@ -20,8 +21,8 @@ const Contact = () => {
   const onSubmit = (data: ContactFormFields) => {
     emailjs
       .send(
-        "service_fzrnwrz",
-        "template_pdzbbip",
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
         {
           from_name: data.name,
           to_name: "tornike",
@@ -29,7 +30,7 @@ const Contact = () => {
           to_email: "toko.tabatadze2@gmail.com",
           message: data.message,
         },
-        "dAdW52mewIJvjoemA",
+        EMAILJS_CONFIG.publicKey
       )
       .then(() => {
         alert("Thank you. We will get back to you as soon as possible.");

@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { supabase } from "./supabase";
 import { useAtom } from "jotai";
 import { userAtom } from "./store/auth";
+import Profile from "./pages/profile";
 
 function App() {
   const [user, setUser] = useAtom(userAtom);
@@ -44,6 +45,7 @@ function App() {
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="register" element={<Register />} />
+        <Route path="profile" element={<Profile/>}/>
       </Route>
       <Route element={<PoliciesLayout />}>
         <Route path="community-guidelines" element={<CommunityGuidelines />} />

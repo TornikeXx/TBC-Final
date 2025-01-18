@@ -88,5 +88,12 @@
   "register": "Register",
   "dont_have_account": "Dont have account?",
   "confirm_password": "Confirm Password",
-  "already_have_account": "Already have Account?"
+  "already_have_account": "Already have Account?",
+  "edit_profile":"Edit Profile",
+  "change_avatar":"Change Avatar",
+  "submit":"Submit",
+  "profile":"Profile",
+  "username":"Username",
+  "phone":"Phone",
+  "log_out":"Log out"
 }

@@ -19,7 +19,8 @@ const Input: React.FC<InputProps> = ({
   rows,
   borderRadius = 28,
   type = "text",
-}) => {
+}
+) => {
   return (
     <TextField
       type={type}
