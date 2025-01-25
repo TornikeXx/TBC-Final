@@ -89,11 +89,16 @@
   "dont_have_account": "Dont have account?",
   "confirm_password": "Confirm Password",
   "already_have_account": "Already have Account?",
-  "edit_profile":"Edit Profile",
-  "change_avatar":"Change Avatar",
-  "submit":"Submit",
-  "profile":"Profile",
-  "username":"Username",
-  "phone":"Phone",
-  "log_out":"Log out"
+  "edit_profile": "Edit Profile",
+  "change_avatar": "Change Avatar",
+  "submit": "Submit",
+  "profile": "Profile",
+  "username": "Username",
+  "phone": "Phone",
+  "log_out": "Log out",
+  "pet_type": "Pet Type",
+  "age": "Age",
+  "description": "Description",
+  "search":"Search with name or pet type",
+  "not_found": "No results found"
 }

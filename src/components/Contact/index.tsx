@@ -30,7 +30,7 @@ const Contact = () => {
           to_email: "toko.tabatadze2@gmail.com",
           message: data.message,
         },
-        EMAILJS_CONFIG.publicKey
+        EMAILJS_CONFIG.publicKey,
       )
       .then(() => {
         alert("Thank you. We will get back to you as soon as possible.");
@@ -40,7 +40,7 @@ const Contact = () => {
 
   return (
     <Box
-      className="w-full flex xsm:gap-[24px] tablet:gap-[40px] xl:gap-[90px] bg-[#FAF8F0]
+      className="w-full flex xsm:gap-[24px] tablet:gap-[40px] dark:border-[2px] dark:border-[#fff]  dark:bg-[#1E1F24] xl:gap-[90px] bg-[#FAF8F0]
                  rounded-[20px] tablet:rounded-[40px]  xsm:py-[30px] xl:py-[50px] 
                  xsm:px-[30px] xl:px-[40px] mb-[30px]"
       sx={{
@@ -66,14 +66,14 @@ const Contact = () => {
         <div className="hidden tablet:block">
           {i18n?.language !== "ge" && (
             <p
-              className="text-[22px] tablet:text-[30px] lg:text-[35px] xl:text-[40px] 
+              className="text-[22px] dark:text-[#FAF8F0] tablet:text-[30px] lg:text-[35px] xl:text-[40px] 
           text-[#1E1F24] font-extrabold"
             >
               {t("get_in_touch")}:
             </p>
           )}
           <p
-            className="text-[22px] tablet:text-[30px] lg:text-[35px] xl:text-[40px] 
+            className="text-[22px] tablet:text-[30px] dark:text-[#FAF8F0] lg:text-[35px] xl:text-[40px] 
                      text-[#1E1F24] font-extrabold"
           >
             {t("contact_petters")}
@@ -81,7 +81,7 @@ const Contact = () => {
         </div>
 
         <p
-          className="block tablet:hidden text-[22px] tablet:text-[30px] lg:text-[35px] xl:text-[40px] 
+          className="block tablet:hidden text-[22px] dark:text-[#FAF8F0CC] tablet:text-[30px] lg:text-[35px] xl:text-[40px] 
                      text-[#1E1F24] font-extrabold"
         >
           {i18n?.language !== "ge" && t("get_in_touch") + ":"}{" "}
@@ -89,14 +89,14 @@ const Contact = () => {
         </p>
 
         <p
-          className="text-[14px] sm:text-[18px] text-[#1E1F24] font-semibold mt-[16px] xsm:mt-[24px] mb-[18px] 
+          className="text-[14px] sm:text-[18px] dark:text-[#FAF8F0CC] text-[#1E1F24] font-semibold mt-[16px] xsm:mt-[24px] mb-[18px] 
                      whitespace-pre-line"
         >
           {t("have_question_feedback")}
         </p>
 
         {i18n?.language !== "ge" && (
-          <p className="text-[14px] sm:text-[18px] text-[#1E1F24] font-semibold">
+          <p className="text-[14px] dark:text-[#FAF8F0CC] sm:text-[18px] text-[#1E1F24] font-semibold">
             {t("we_love_hear")}
           </p>
         )}

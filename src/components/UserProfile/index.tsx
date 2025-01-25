@@ -11,7 +11,6 @@ import Input from "../../components/Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ProfileFormFields, profileSchema } from "../../schemas/profileSchema";
 
-
 const UserProfile = () => {
   const { t } = useTranslation();
 
@@ -28,10 +27,10 @@ const UserProfile = () => {
       nameKa: "",
       nameEn: "",
     },
-    resolver:zodResolver(profileSchema)
+    resolver: zodResolver(profileSchema),
   });
 
-  const fetchProfileInfo = async (id: string ) => {
+  const fetchProfileInfo = async (id: string) => {
     const res = await getProfileInfo(id);
     const profileData = res.data?.[0];
     if (profileData) {
@@ -87,18 +86,16 @@ const UserProfile = () => {
   return (
     <div className="h-[100vh] flex flex-col items-center mb-[24px] tablet:mb-[32px] rounded-[30px] bg-black justify-center">
       <div className="w-[400px] tablet:w-[500px] flex flex-col gap-4">
-        <h1 className="flex justify-center text-[30px] font-extrabold">{t("edit_profile")}</h1>
+        <h1 className="flex justify-center text-[30px] font-extrabold">
+          {t("edit_profile")}
+        </h1>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           <Controller
             name="phone"
             control={control}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <>
-                <Input
-                  placeholder="Phone"
-                  value={value}
-                  onChange={onChange}
-                />
+                <Input placeholder="Phone" value={value} onChange={onChange} />
                 {error && (
                   <p className="text-red-600">{t(error.message || "")}</p>
                 )}{" "}
@@ -111,11 +108,7 @@ const UserProfile = () => {
             control={control}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <>
-                <Input
-                  placeholder="Name"
-                  value={value}
-                  onChange={onChange}
-                />
+                <Input placeholder="Name" value={value} onChange={onChange} />
                 {error && (
                   <p className="text-red-600">{t(error.message || "")}</p>
                 )}{" "}
@@ -145,7 +138,7 @@ const UserProfile = () => {
             className="text-xl font-bold"
             onClick={handleGenerateAvatar}
           >
-            {t('change_avatar')}
+            {t("change_avatar")}
           </button>
 
           <button
@@ -168,7 +161,7 @@ const UserProfile = () => {
               <p>{profile.full_name_ka}</p>
             </span>
             <span className="flex gap-4">
-              <p className="font-bold">{t('phone')}</p>
+              <p className="font-bold">{t("phone")}</p>
               <p>{profile.phone_number}</p>
             </span>
             <img className="w-[100px] h-[100px]" src={avatar} alt="avatar" />

@@ -8,7 +8,7 @@ export const fillProfileInfo = async (
   return res;
 };
 
-export const getProfileInfo = async (id: string ) => {
+export const getProfileInfo = async (id: string) => {
   const res = await supabase.from("profiles").select("*").eq("id", id);
   return res;
 };

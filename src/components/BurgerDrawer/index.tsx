@@ -14,23 +14,23 @@ interface BurgerDrawerProps {
   open: boolean;
   toggleDrawer: (
     open: boolean,
-  ) => (event?: {}, reason?: "backdropClick" | "escapeKeyDown") => void;
+  ) => (event?:object, reason?: "backdropClick" | "escapeKeyDown") => void;
 }
 
 const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
-      const user = useAtomValue(userAtom);
-    
-      const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
-    
-      useEffect(() => {
-        if (user) {
-          getProfileInfo(user.user.id).then((res) => {
-            if (res.data) {
-              setAvatarUrl(res.data[0].avatar_url);
-            }
-          });
+  const user = useAtomValue(userAtom);
+
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (user) {
+      getProfileInfo(user.user.id).then((res) => {
+        if (res.data) {
+          setAvatarUrl(res.data[0].avatar_url);
         }
-      }, [user]);
+      });
+    }
+  }, [user]);
   const navigate = useNavigate();
   const { t } = useTranslation();
   const location = useLocation();
@@ -48,21 +48,19 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
     >
       <nav className="w-[260px] h-[130%] flex flex-col bg-[#1E1F24] pl-[15px] pr-[40px] pb-[32px]">
         <div className="flex items-center justify-end gap-[16px] pb-[32px] bg-[#1E1F24] sticky pt-[16px] top-0 left-0">
-        {user? (
-        <button
-        onClick={() => {
-          navigate("/profile");
-        }}
-      >
-        <img
-          className="w-[40px]"
-          src={avatarUrl ?? "https://via.placeholder.com/150"}
-          alt=""
-        />
-      </button>     ):
-            null
-
-        }
+          {user ? (
+            <button
+              onClick={() => {
+                navigate("/profile");
+              }}
+            >
+              <img
+                className="w-[40px]"
+                src={avatarUrl ?? "https://via.placeholder.com/150"}
+                alt=""
+              />
+            </button>
+          ) : null}
           <LanguageSwitcher />
           <ThemeSwitcher />
 

@@ -5,11 +5,13 @@ import { userAtom } from "../../store/auth";
 import Input from "../Input";
 import { FormValues } from "../../pages/explore/types";
 import { useHandleAddingBlog } from "../../react-query/mutation/blogs";
+import { useTranslation } from "react-i18next";
 
 const CreateBlog: React.FC = () => {
   const user = useAtomValue(userAtom);
+  const { t } = useTranslation();
 
-  const { control, handleSubmit } = useForm<FormValues>({
+  const { control, handleSubmit,reset } = useForm<FormValues>({
     defaultValues: {
       title_en: "",
       title_ka: "",
@@ -28,56 +30,56 @@ const CreateBlog: React.FC = () => {
       image_url: formValues.image,
       user_id: user?.user?.id,
     });
+    reset()
   };
 
   const { mutate: addBlogToList } = useHandleAddingBlog();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}  className="flex flex-col gap-4 bg-black">
-      <div className="flex gap-2">
-        <Controller
-          name="title_ka"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <Input
-              placeholder="სათაური"
-              value={value}
-              onChange={onChange}
-            //   className="w-[50%]"
-            />
-          )}
-        />
-
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex  flex-col gap-4 bg-black"
+    >
+      <div className="flex flex-col  gap-2">
         <Controller
           name="title_en"
           control={control}
           render={({ field: { onChange, value } }) => (
-            <Input
-              placeholder="Tittle"
-              value={value}
-              onChange={onChange}
-            //   className="w-[50%]"
-            />
+            <Input placeholder={t("name")} value={value} onChange={onChange} />
+          )}
+        />
+
+        <Controller
+          name="title_ka"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Input placeholder={t("age")} value={value} onChange={onChange} />
           )}
         />
       </div>
 
-      <div className="flex gap-2">
-        <Controller
-          name="description_ka"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <Input placeholder="აღწერა" value={value} onChange={onChange} />
-          )}
-        />
-
+      <div className="flex flex-col gap-2">
         <Controller
           name="description_en"
           control={control}
           render={({ field: { onChange, value } }) => (
             <Input
-              placeholder="Description"
+              placeholder={t("pet_type")}
               value={value}
+              onChange={onChange}
+            />
+          )}
+        />
+
+        <Controller
+          name="description_ka"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              placeholder={t("description")}
+              value={value}
+              rows={4}
+              multiline
               onChange={onChange}
             />
           )}
@@ -100,7 +102,9 @@ const CreateBlog: React.FC = () => {
 
       <button
         type="submit"
-        className="bg-buttonblue hover:bg-buttonblue-light text-white py-2 px-4 rounded"
+        className="bg-[#5BBA66] w-full h-[56px]  text-[18px] !normal-case
+        hover:text-[#1E1F24] hover:bg-[#FAF8F0] font-bold !leading-[0]   !rounded-[40px]  text-white 
+               hover:!transition-colors !duration-300"
       >
         Submit
       </button>

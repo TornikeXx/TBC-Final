@@ -39,7 +39,7 @@ const Register = () => {
   };
 
   return (
-    <div className="tablet:flex tablet:justify-center">
+    <div className="tablet:flex tablet:justify-center ">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full tablet:w-[70%] rounded-[20px] tablet:rounded-[30px] sm:h-[320px] bg-[#1E1F24] 

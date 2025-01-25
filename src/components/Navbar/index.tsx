@@ -25,7 +25,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   return (
-    <nav className="h-[70px] flex items-center justify-between mb-[32px] bg-[#1E1F24]  rounded-[40px] px-[32px]">
+    <nav className="h-[70px] flex items-center justify-between mb-[32px] bg-[#1E1F24] dark:border-[2px] dark:border-[#fff]   rounded-[40px] px-[32px]">
       <div className="flex items-center gap-[30px] lg:gap-[40px]">
         <h1>
           <Logo />
@@ -50,7 +50,7 @@ const Navbar = () => {
                   navigate("/sign-in");
                 }
               }}
-              className={`hover:text-[#5BBA66] dark:text-black ${
+              className={`hover:text-[#5BBA66] ${
                 location.pathname === "/explore" ? "text-[#5BBA66]" : ""
               }`}
             >
@@ -72,21 +72,19 @@ const Navbar = () => {
         >
           {t("contact_us")}
         </button>
-      {user? (
-        <button
-        onClick={() => {
-          navigate("/profile");
-        }}
-      >
-        <img
-          className="w-[40px]"
-          src={avatarUrl ?? "https://via.placeholder.com/150"}
-          alt=""
-        />
-      </button>     ):
-            null
-
-        }
+        {user ? (
+          <button
+            onClick={() => {
+              navigate("/profile");
+            }}
+          >
+            <img
+              className="w-[40px]"
+              src={avatarUrl ?? "https://via.placeholder.com/150"}
+              alt=""
+            />
+          </button>
+        ) : null}
         <LanguageSwitcher />
         <ThemeSwitcher />
       </div>

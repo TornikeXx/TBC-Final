@@ -14,6 +14,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.dark {
+  background-color: #1e1f24;
+}
 html,
 body {
   margin: 0;

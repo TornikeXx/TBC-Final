@@ -14,7 +14,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
   return (
     <footer
       className={`flex flex-col sm:flex-row gap-[24px] sm:gap-[4px] sm:justify-between 
-                  px-[16px] tablet:px-[48px] py-[24px] rounded-[30px] ${
+                  px-[16px] tablet:px-[48px] py-[24px] dark:bg-[#1E1F24] dark:border-[2px] dark:border-[#fff] rounded-[30px] ${
                     fromPolicies
                       ? "bg-inherit border border-[#FAF8F0]  "
                       : "bg-[#FAF8F0]"
@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
     >
       <div>
         <p
-          className={`text-[16px] tablet:text-[20px]  font-bold ${
+          className={`text-[16px] tablet:text-[20px] dark:text-[#FAF8F0]  font-bold ${
             fromPolicies ? "text-[#FAF8F0]" : "text-black"
           }`}
         >
@@ -31,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
 
         <div className="flex flex-col xsm:flex-row xsm:items-center gap-[20px] tablet:gap-[40px] mt-[14px]">
           <div
-            className={`flex flex-col gap-[14px] ${
+            className={`flex flex-col gap-[14px] dark:text-[#FAF8F0CC] ${
               fromPolicies ? "text-[#FAF8F0CC]" : "text-[#1E1F24CC]"
             }`}
           >
@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
             </Link>
           </div>
           <div
-            className={`flex flex-col gap-[14px] ${
+            className={`flex flex-col gap-[14px] dark:text-[#FAF8F0CC] ${
               fromPolicies ? "text-[#FAF8F0CC]" : "text-[#1E1F24CC]"
             }`}
           >
@@ -101,7 +101,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
 
       <div>
         <p
-          className={`text-[16px] tablet:text-[20px] font-bold ${
+          className={`text-[16px] tablet:text-[20px] dark:text-[#FAF8F0] font-bold ${
             fromPolicies ? "text-[#FAF8F0]" : "text-black"
           }`}
         >
