@@ -2,7 +2,7 @@ import { Route } from "react-router-dom";
 import { MAIN_PATHS } from "../index.enum";
 import { lazy, Suspense } from "react";
 import Loading from "../../../components/Loading";
-import RequireAuth from "../../../components/RouteGuards/RequireAuth";
+import RequireAuth from "../../../route-guards/RequireAuth";
 
 const HomePage = lazy(() => import("../../../pages/home"));
 const ExplorePage = lazy(() => import("../../../pages/explore"));
@@ -52,5 +52,5 @@ export const MAIN_ROUTE = [
         <SinglePetPage />
       </Suspense>
     }
-  />,
+  />
 ];

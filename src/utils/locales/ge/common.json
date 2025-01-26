@@ -100,6 +100,6 @@
   "description": "აღწერა",
   "search": "მოძებნე სახელით ან ცხოველის ტიპით",
   "not_found": "წარუმატებელი ძებნა",
-  "go_back":"უკან",
-  "match_on_petters":"ჩამოტვირთე Petters და დაუმეგობრდი"
+  "go_back": "უკან",
+  "match_on_petters": "ჩამოტვირთე Petters და დაუმეგობრდი"
 }

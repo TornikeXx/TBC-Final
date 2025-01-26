@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { AUTH_PATHS } from "../index.enum";
 import Loading from "../../../components/Loading";
-import RedirectIfAuth from "../../../components/RouteGuards/RedirectIfAuth";
+import RedirectIfAuth from "../../../route-guards/RedirectIfAuth";
 
 const LogInPage = lazy(() => import("../../../pages/sign-in"));
 

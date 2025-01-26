@@ -7,8 +7,7 @@ const SinglePet = () => {
   const { id } = useParams<{ id: string }>();
 
   const blogId = id ? Number(id) : undefined;
-    const { t } = useTranslation();
-  
+  const { t } = useTranslation();
 
   const { data: blog } = useGetSingleBlog(blogId as number);
 
