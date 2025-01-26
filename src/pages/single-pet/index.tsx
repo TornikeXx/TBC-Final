@@ -1,11 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import { useGetSingleBlog } from "../../react-query/query/blogs";
 import { MAIN_PATHS } from "../../routes/main/index.enum";
+import { useTranslation } from "react-i18next";
 
 const SinglePet = () => {
   const { id } = useParams<{ id: string }>();
 
   const blogId = id ? Number(id) : undefined;
+    const { t } = useTranslation();
+  
 
   const { data: blog } = useGetSingleBlog(blogId as number);
 
@@ -28,10 +31,10 @@ const SinglePet = () => {
             </p>
             <div className="flex justify-between w-full">
               <Link to={`/${MAIN_PATHS.EXPLORE}`} className="text-[#555969]">
-                Go Back
+                {t("go_back")}
               </Link>
               <p className="text-green cursor-pointer">
-                Download Petters And Match!
+                {t("match_on_petters")}
               </p>
             </div>
           </div>
