@@ -11,7 +11,6 @@ import { formatDate } from "../../utils/format-date";
 import { useHandleDeleteBlog } from "../../react-query/mutation/blogs";
 import { useTranslation } from "react-i18next";
 
-
 const Explore = () => {
   const { t } = useTranslation();
 
@@ -55,7 +54,9 @@ const Explore = () => {
       <div className="flex flex-col gap-5 mt-6">
         {blogs?.length === 0 ? (
           <div className="h-[100px] flex justify-center items-center">
-          <p className="text-center font-bold text-[#555969]">{t("not_found")}</p>
+            <p className="text-center font-bold text-[#555969]">
+              {t("not_found")}
+            </p>
           </div>
         ) : (
           blogs?.map((blog) => {
@@ -103,4 +104,3 @@ const Explore = () => {
 };
 
 export default Explore;
-

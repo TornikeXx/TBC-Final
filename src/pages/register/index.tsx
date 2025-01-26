@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useHandleRegister } from "../../react-query/mutation/auth";
 import { Link } from "react-router-dom";
+import { AUTH_PATHS } from "../../routes/auth/index.enum";
 
 const Register = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -163,7 +164,7 @@ const Register = () => {
             <div className="flex justify-center pt-[16px] tablet:pt-[24px]">
               <span className="text-[14px] font-thin">
                 {t("already_have_account")}{" "}
-                <Link to="/sign-in" className="text-green">
+                <Link to={`/${AUTH_PATHS.SIGN_IN}`} className="text-green">
                   {t("log_in")}
                 </Link>
               </span>

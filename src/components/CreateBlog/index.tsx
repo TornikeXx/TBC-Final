@@ -11,7 +11,7 @@ const CreateBlog: React.FC = () => {
   const user = useAtomValue(userAtom);
   const { t } = useTranslation();
 
-  const { control, handleSubmit,reset } = useForm<FormValues>({
+  const { control, handleSubmit, reset } = useForm<FormValues>({
     defaultValues: {
       title_en: "",
       title_ka: "",
@@ -30,7 +30,7 @@ const CreateBlog: React.FC = () => {
       image_url: formValues.image,
       user_id: user?.user?.id,
     });
-    reset()
+    reset();
   };
 
   const { mutate: addBlogToList } = useHandleAddingBlog();

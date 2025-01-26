@@ -1,6 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { login, logout, register } from "../../../supabase/auth";
+import { MAIN_PATHS } from "../../../routes/main/index.enum";
+import { AUTH_PATHS } from "../../../routes/auth/index.enum";
 
 export const useHandleRegister = () => {
   const navigate = useNavigate();
@@ -8,7 +10,7 @@ export const useHandleRegister = () => {
     mutationKey: ["register"],
     mutationFn: register,
     onSuccess: () => {
-      navigate("/sign-in");
+      navigate("/" + AUTH_PATHS.SIGN_IN);
     },
   });
 };
@@ -18,7 +20,7 @@ export const useHandleLogIn = () => {
     mutationKey: ["login"],
     mutationFn: login,
     onSuccess: () => {
-      navigate("/");
+      navigate(MAIN_PATHS.HOME);
     },
   });
 };
@@ -27,6 +29,6 @@ export const useHandleLogOut = () => {
   return useMutation({
     mutationKey: ["logout"],
     mutationFn: logout,
-    onSuccess: () => navigate("/sign-in"),
+    onSuccess: () => navigate("/" + AUTH_PATHS.SIGN_IN),
   });
 };

@@ -91,7 +91,7 @@ export const getBlogById = async (id: number) => {
       .from("blogs")
       .select("*")
       .eq("id", id)
-      .single(); 
+      .single();
 
     if (error) {
       throw new Error(error.message);

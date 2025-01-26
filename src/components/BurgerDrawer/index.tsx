@@ -9,12 +9,14 @@ import ThemeSwitcher from "../ThemeSwitcher";
 import { useAtomValue } from "jotai";
 import { userAtom } from "../../store/auth";
 import { getProfileInfo } from "../../supabase/account";
+import { MAIN_PATHS } from "../../routes/main/index.enum";
+import { POLICIES_PATHS } from "../../routes/policies/index.enum";
 
 interface BurgerDrawerProps {
   open: boolean;
   toggleDrawer: (
     open: boolean,
-  ) => (event?:object, reason?: "backdropClick" | "escapeKeyDown") => void;
+  ) => (event?: object, reason?: "backdropClick" | "escapeKeyDown") => void;
 }
 
 const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
@@ -51,7 +53,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
           {user ? (
             <button
               onClick={() => {
-                navigate("/profile");
+                navigate(`/${MAIN_PATHS.PROFILE}`);
               }}
             >
               <img
@@ -75,7 +77,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
         >
           <li>
             <Link
-              to="/"
+              to={MAIN_PATHS.HOME}
               className={`hover:text-[#5BBA66] inline-block m-0 ${
                 location.pathname === "/" ? "text-[#5BBA66]" : ""
               }`}
@@ -85,7 +87,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
           </li>
           <li>
             <Link
-              to="explore"
+              to={MAIN_PATHS.EXPLORE}
               className={`hover:text-[#5BBA66] inline-block m-0 ${
                 location.pathname === "/explore" ? "text-[#5BBA66]" : ""
               }`}
@@ -102,7 +104,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
         >
           <li>
             <Link
-              to="community-guidelines"
+              to={POLICIES_PATHS.COMMUNITY_GUIDELINES}
               className={`hover:text-[#5BBA66] inline-block m-0 ${
                 location.pathname === "/community-guidelines"
                   ? "text-[#5BBA66]"
@@ -114,7 +116,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
           </li>
           <li>
             <Link
-              to="safety-tips"
+              to={POLICIES_PATHS.SAFETY_TIPS}
               className={`hover:text-[#5BBA66] inline-block ${
                 location.pathname === "/safety-tips" ? "text-[#5BBA66]" : ""
               }`}
@@ -124,7 +126,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
           </li>
           <li>
             <Link
-              to="terms-of-service"
+              to={POLICIES_PATHS.TERMS_OF_SERVICE}
               className={`hover:text-[#5BBA66] inline-block ${
                 location.pathname === "/terms-of-service"
                   ? "text-[#5BBA66]"
@@ -136,7 +138,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
           </li>
           <li>
             <Link
-              to="privacy-policy"
+              to={POLICIES_PATHS.PRIVACY_POLICY}
               className={`hover:text-[#5BBA66] inline-block ${
                 location.pathname === "/privacy-policy" ? "text-[#5BBA66]" : ""
               }`}
@@ -146,7 +148,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
           </li>
           <li>
             <Link
-              to="privacy-preferences"
+              to={POLICIES_PATHS.PRIVACY_PREFERENCES}
               className={`hover:text-[#5BBA66] inline-block ${
                 location.pathname === "/privacy-preferences"
                   ? "text-[#5BBA66]"
@@ -158,7 +160,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
           </li>
           <li>
             <Link
-              to="licenses"
+              to={POLICIES_PATHS.LICENSES}
               className={`hover:text-[#5BBA66] inline-block ${
                 location.pathname === "/licenses" ? "text-[#5BBA66]" : ""
               }`}
@@ -169,7 +171,7 @@ const BurgerDrawer: React.FC<BurgerDrawerProps> = ({ open, toggleDrawer }) => {
         </ul>
         <div className="flex items-center justify-end">
           <button
-            onClick={() => navigate("/contact-us")}
+            onClick={() => navigate(`/${MAIN_PATHS.CONTACT_US}`)}
             className={`!text-[14px] bg-[#5BBA66] text-[#F6EBDE] !font-extrabold !rounded-[40px] w-[185px] h-[38px] text-white 
                hover:!bg-[#F6EBDE] hover:!text-[#1e1f24] hover:!transition-colors !duration-300 !leading-[1] ${
                  location.pathname === "/contact-us"

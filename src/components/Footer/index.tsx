@@ -2,6 +2,7 @@ import React from "react";
 import SocialIcons from "../../icons/SocialIcons";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { POLICIES_PATHS } from "../../routes/policies/index.enum";
 
 interface FooterProps {
   fromPolicies?: boolean;
@@ -36,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
             }`}
           >
             <Link
-              to="community-guidelines"
+              to={POLICIES_PATHS.COMMUNITY_GUIDELINES}
               className={`text-[14px] tablet:text-[16px] font-semibold hover:text-[#5BBA66] ${
                 location.pathname === "/community-guidelines"
                   ? "text-[#5BBA66]"
@@ -46,7 +47,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
               {t("community_guidelines")}
             </Link>
             <Link
-              to="safety-tips"
+              to={POLICIES_PATHS.SAFETY_TIPS}
               className={`text-[14px] tablet:text-[16px] font-semibold hover:text-[#5BBA66] ${
                 location.pathname === "/safety-tips" ? "text-[#5BBA66]" : ""
               }`}
@@ -54,7 +55,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
               {t("safety_tips")}
             </Link>
             <Link
-              to="terms-of-service"
+              to={POLICIES_PATHS.TERMS_OF_SERVICE}
               className={`text-[14px] tablet:text-[16px] font-semibold hover:text-[#5BBA66] ${
                 location.pathname === "/terms-of-service"
                   ? "text-[#5BBA66]"
@@ -70,7 +71,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
             }`}
           >
             <Link
-              to="privacy-policy"
+              to={POLICIES_PATHS.PRIVACY_POLICY}
               className={`text-[14px] tablet:text-[16px] font-semibold hover:text-[#5BBA66] ${
                 location.pathname === "/privacy-policy" ? "text-[#5BBA66]" : ""
               }`}
@@ -78,7 +79,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
               {t("privacy_policy")}
             </Link>
             <Link
-              to="privacy-preferences"
+              to={POLICIES_PATHS.PRIVACY_PREFERENCES}
               className={`text-[14px] tablet:text-[16px] font-semibold hover:text-[#5BBA66] ${
                 location.pathname === "/privacy-preferences"
                   ? "text-[#5BBA66]"
@@ -88,7 +89,7 @@ const Footer: React.FC<FooterProps> = ({ fromPolicies = false }) => {
               {t("privacy_preferences")}
             </Link>
             <Link
-              to="licenses"
+              to={POLICIES_PATHS.LICENSES}
               className={`text-[14px] tablet:text-[16px] font-semibold hover:text-[#5BBA66] ${
                 location.pathname === "/licenses" ? "text-[#5BBA66]" : ""
               }`}

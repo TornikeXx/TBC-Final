@@ -7,6 +7,8 @@ import { useAtomValue } from "jotai";
 import { userAtom } from "../../store/auth";
 import { useEffect, useState } from "react";
 import { getProfileInfo } from "../../supabase/account";
+import { MAIN_PATHS } from "../../routes/main/index.enum";
+import { AUTH_PATHS } from "../../routes/auth/index.enum";
 
 const Navbar = () => {
   const user = useAtomValue(userAtom);
@@ -33,7 +35,7 @@ const Navbar = () => {
         <ul className="flex gap-[24px] lg:gap-[36px] text-[#FAF8F0] font-bold text-[18px]">
           <li className="cursor-pointer">
             <Link
-              to="/"
+              to={MAIN_PATHS.HOME}
               className={`hover:text-[#5BBA66] ${
                 location.pathname === "/" ? "text-[#5BBA66]" : ""
               }`}
@@ -45,9 +47,9 @@ const Navbar = () => {
             <span
               onClick={() => {
                 if (user) {
-                  navigate("/explore");
+                  navigate(`/${MAIN_PATHS.EXPLORE}`);
                 } else {
-                  navigate("/sign-in");
+                  navigate(`/${AUTH_PATHS.SIGN_IN}`);
                 }
               }}
               className={`hover:text-[#5BBA66] ${
@@ -61,7 +63,7 @@ const Navbar = () => {
       </div>
       <div className="rounded-l-[40px] flex flex-row items-center p-0 m-0 gap-[16px]">
         <button
-          onClick={() => navigate("contact-us")}
+          onClick={() => navigate(MAIN_PATHS.CONTACT_US)}
           className={`   bg-[#5BBA66] text-[18px] !normal-case
                 hover:text-[#1E1F24] hover:bg-[#FAF8F0] font-bold !leading-[0]   !rounded-[40px] w-[185px] h-[48px] text-white 
                        hover:!transition-colors !duration-300 ${
@@ -75,7 +77,7 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={() => {
-              navigate("/profile");
+              navigate(`/${MAIN_PATHS.PROFILE}`);
             }}
           >
             <img
