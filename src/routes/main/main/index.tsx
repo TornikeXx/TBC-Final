@@ -52,5 +52,5 @@ export const MAIN_ROUTE = [
         <SinglePetPage />
       </Suspense>
     }
-  />
+  />,
 ];

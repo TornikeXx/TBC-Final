@@ -83,13 +83,13 @@ const Explore = () => {
                     </p>
                     <div className="flex justify-center gap-4">
                       <Link to={`/pet/${blog.id}`} className="text-green">
-                        See More
+                        {t("see_more")}
                       </Link>
                       <p
                         onClick={() => deleteBlog(blog.id)}
                         className="text-[#ff0000]"
                       >
-                        delete
+                        {t("delete")}
                       </p>
                     </div>
                   </div>

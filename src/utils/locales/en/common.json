@@ -102,5 +102,7 @@
   "search": "Search with name or pet type",
   "not_found": "No results found",
   "go_back": "Go back",
-  "match_on_petters": "Download Petters And Match!"
+  "match_on_petters": "Download Petters And Match!",
+  "see_more":"See more",
+  "delete":"Delete"
 }

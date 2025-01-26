@@ -29,7 +29,7 @@ const SignIn = () => {
 
   const onSubmit = (data: SignInFormValues) => {
     handleLogIn({ email: data.email, password: data.password });
-    
+
     reset();
   };
 
